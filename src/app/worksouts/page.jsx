@@ -1,9 +1,9 @@
 import React from "react";
-import BookCard from "../shared/BookCard";
+import WorkoutCard from "@/components/shared/WorkoutCard";
 
-const Books = async () => {
+const Workouts = async () => {
     const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
-    const books = await res.json();
+    const workouts = await res.json();
 
     return (
         <div className="container mx-auto">
@@ -13,12 +13,12 @@ const Books = async () => {
             </div>
 
             <div className=" my-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {books.map((book) => {
-                    return <BookCard key={book.id} book={book} />;
+                {workouts.map((workout) => {
+                    return <WorkoutCard key={workout.id} workout={workout} />;
                 })}
             </div>
         </div>
     );
 };
 
-export default Books;
+export default Workouts;

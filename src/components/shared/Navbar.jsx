@@ -5,7 +5,7 @@ import React from "react";
 const Navbar = () => {
     return (
         <div className="border-b-2 border-[#222630] py-5">
-            <div className="navbar bg-black shadow-sm container mx-auto">
+            <div className="navbar container mx-auto bg-black shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div
@@ -21,54 +21,66 @@ const Navbar = () => {
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
                             >
-                                {" "}
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                     strokeWidth="2"
                                     d="M4 6h16M4 12h8m-8 6h16"
-                                />{" "}
+                                />
                             </svg>
                         </div>
+
                         <ul
                             tabIndex={-1}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 bg-base-100 p-2 shadow"
                         >
                             <li>
-                                <Link href={""} className="bg-[#94BD04] rounded-3xl">Worksout</Link>
+                                <Link
+                                    href="/worksouts"
+                                    className="rounded-3xl bg-[#94BD04]"
+                                >
+                                    Worksout
+                                </Link>
                             </li>
                             <li>
-                                <Link href={""}>My Plan</Link>
+                                <Link href="/my-plan">My Plan</Link>
                             </li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl flex gap-5">
+
+                    <Link
+                        href="/"
+                        className="btn btn-ghost flex gap-5 text-xl"
+                    >
                         <Image
                             src="/logo.png"
                             alt="Logo"
                             height={50}
                             width={50}
-                        ></Image>
+                        />
                         <p>FITLOG</p>
-                    </a>
+                    </Link>
                 </div>
+
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li>
-                            <Link href={""} className="text-[#C2F800] bg-[#1A2312] rounded-3xl font-bold">Worksouts</Link>
+                            <Link
+                                href="/worksouts"
+                                className="rounded-3xl bg-[#1A2312] font-bold text-[#C2F800]"
+                            >
+                                Worksouts
+                            </Link>
                         </li>
                         <li>
-                            <Link href={""}>My Plan</Link>
+                            <Link href="/my-plan">My Plan</Link>
                         </li>
                     </ul>
                 </div>
+
                 <div className="navbar-end flex gap-10">
-                    <Link href={""} className=" ">
-                        Plan
-                    </Link>
-                    <Link href={""} className="">
-                        Saved
-                    </Link>
+                    <Link href="/">Plan</Link>
+                    <Link href="/">Saved</Link>
                 </div>
             </div>
         </div>
