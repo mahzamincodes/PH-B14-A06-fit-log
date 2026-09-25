@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import AddToPlanButton from "@/components/workout/AddToPlanButton";
+import SaveForLaterButton from "@/components/workout/SaveForLaterButton";
 
 const getWorkouts = async () => {
     const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
@@ -153,43 +155,9 @@ const WorkoutDetailsPage = async ({ params }) => {
                         </div>
 
                         <div className="flex items-center gap-3 border-t border-gray-800 pt-4">
-                            <button className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#ccff00] px-4 py-3 text-sm font-bold text-black transition-colors hover:bg-[#b5e000]">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-4 w-4"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M12 4v16m8-8H4"
-                                    />
-                                </svg>
+                            <AddToPlanButton workout={workout} />
 
-                                Add to today plan
-                            </button>
-
-                            <button className="flex items-center justify-center gap-2 rounded-xl border border-gray-700 px-5 py-3 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-800">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-4 w-4"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                                    />
-                                </svg>
-
-                                Save for later
-                            </button>
+                            <SaveForLaterButton workout={workout} />
                         </div>
                     </div>
                 </div>

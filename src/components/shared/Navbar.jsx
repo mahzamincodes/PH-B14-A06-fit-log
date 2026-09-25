@@ -1,8 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { usePathname } from "next/navigation";
+import { useFitlog } from "@/context/FitlogContext";
 
 const Navbar = () => {
+    const pathname = usePathname();
+    const { todayPlan, savedWorkouts } = useFitlog();
+
     return (
         <div className="border-b-2 border-[#222630] py-5">
             <div className="navbar container mx-auto bg-black shadow-sm">
@@ -37,21 +44,31 @@ const Navbar = () => {
                             <li>
                                 <Link
                                     href="/worksouts"
-                                    className="rounded-3xl bg-[#94BD04]"
+                                    className={
+                                        pathname === "/worksouts"
+                                            ? "rounded-3xl bg-[#94BD04]"
+                                            : ""
+                                    }
                                 >
                                     Worksout
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/my-plan">My Plan</Link>
+                                <Link
+                                    href="/my-plan"
+                                    className={
+                                        pathname === "/my-plan"
+                                            ? "rounded-3xl bg-[#94BD04]"
+                                            : ""
+                                    }
+                                >
+                                    My Plan
+                                </Link>
                             </li>
                         </ul>
                     </div>
 
-                    <Link
-                        href="/"
-                        className="btn btn-ghost flex gap-5 text-xl"
-                    >
+                    <Link href="/" className="btn btn-ghost flex gap-5 text-xl">
                         <Image
                             src="/logo.png"
                             alt="Logo"
@@ -67,20 +84,44 @@ const Navbar = () => {
                         <li>
                             <Link
                                 href="/worksouts"
-                                className="rounded-3xl bg-[#1A2312] font-bold text-[#C2F800]"
+                                className={
+                                    pathname === "/worksouts"
+                                        ? "rounded-3xl bg-[#1A2312] font-bold text-[#C2F800]"
+                                        : ""
+                                }
                             >
                                 Worksouts
                             </Link>
                         </li>
                         <li>
-                            <Link href="/my-plan">My Plan</Link>
+                            <Link
+                                href="/my-plan"
+                                className={
+                                    pathname === "/my-plan"
+                                        ? "rounded-3xl bg-[#1A2312] font-bold text-[#C2F800]"
+                                        : ""
+                                }
+                            >
+                                My Plan
+                            </Link>
                         </li>
                     </ul>
                 </div>
 
                 <div className="navbar-end flex gap-10">
-                    <Link href="/">Plan</Link>
-                    <Link href="/">Saved</Link>
+                    <Link href="/" className="flex items-center gap-1">
+                        Plan
+                        <span className="rounded-full bg-[#C2F800] px-2 py-0.5 text-xs font-bold text-black">
+                            {todayPlan.length}
+                        </span>
+                    </Link>
+
+                    <Link href="/" className="flex items-center gap-1">
+                        Saved
+                        <span className="rounded-full bg-[#C2F800] px-2 py-0.5 text-xs font-bold text-black">
+                            {savedWorkouts.length}
+                        </span>
+                    </Link>
                 </div>
             </div>
         </div>
