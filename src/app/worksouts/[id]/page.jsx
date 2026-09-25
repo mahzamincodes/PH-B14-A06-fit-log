@@ -65,9 +65,9 @@ const WorkoutDetailsPage = async ({ params }) => {
                                 ))}
                             </div>
 
-                            <div className="mt-6 divide-y divide-gray-800/50 border-t border-gray-800 text-sm">
+                            <div className="mt-6 divide-y divide-gray-800/50 border-t border-gray-800 text-sm bg-[#151922] px-5 py-1 rounded-2xl">
                                 <div className="flex justify-between py-2.5">
-                                    <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                                         Equipment
                                     </span>
 
@@ -77,7 +77,7 @@ const WorkoutDetailsPage = async ({ params }) => {
                                 </div>
 
                                 <div className="flex justify-between py-2.5">
-                                    <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                                         Difficulty
                                     </span>
 
@@ -87,7 +87,7 @@ const WorkoutDetailsPage = async ({ params }) => {
                                 </div>
 
                                 <div className="flex justify-between py-2.5">
-                                    <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                                         Sets
                                     </span>
 
@@ -97,7 +97,7 @@ const WorkoutDetailsPage = async ({ params }) => {
                                 </div>
 
                                 <div className="flex justify-between py-2.5">
-                                    <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                                         Reps
                                     </span>
 
@@ -107,7 +107,7 @@ const WorkoutDetailsPage = async ({ params }) => {
                                 </div>
 
                                 <div className="flex justify-between py-2.5">
-                                    <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                                         Duration
                                     </span>
 
@@ -117,7 +117,7 @@ const WorkoutDetailsPage = async ({ params }) => {
                                 </div>
 
                                 <div className="flex justify-between py-2.5">
-                                    <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                                         Calories
                                     </span>
 
@@ -127,7 +127,7 @@ const WorkoutDetailsPage = async ({ params }) => {
                                 </div>
 
                                 <div className="flex justify-between py-2.5">
-                                    <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                                         Rating
                                     </span>
 
@@ -138,7 +138,7 @@ const WorkoutDetailsPage = async ({ params }) => {
                             </div>
 
                             <div className="mt-6">
-                                <h2 className="mb-3 text-xs font-bold tracking-widest text-gray-400 uppercase">
+                                <h2 className="mb-3 text-xs font-bold tracking-widest text-white uppercase">
                                     Instructions
                                 </h2>
 

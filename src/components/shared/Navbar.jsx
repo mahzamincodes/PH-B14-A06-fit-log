@@ -109,16 +109,16 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end flex gap-10">
-                    <Link href="/" className="flex items-center gap-1">
+                    <Link href="/my-plan" className="flex items-center gap-1">
                         Plan
                         <span className="rounded-full bg-[#C2F800] px-2 py-0.5 text-xs font-bold text-black">
                             {todayPlan.length}
                         </span>
                     </Link>
 
-                    <Link href="/" className="flex items-center gap-1">
+                    <Link href="/my-plan" className="flex items-center gap-1">
                         Saved
-                        <span className="rounded-full bg-[#C2F800] px-2 py-0.5 text-xs font-bold text-black">
+                        <span className="rounded-full bg-[#000000] px-2 py-0.5 text-xs font-bold text-white border border-amber-50">
                             {savedWorkouts.length}
                         </span>
                     </Link>
