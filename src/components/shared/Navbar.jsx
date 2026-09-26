@@ -46,7 +46,7 @@ const Navbar = () => {
                                     href="/worksouts"
                                     className={
                                         pathname === "/worksouts"
-                                            ? "rounded-3xl bg-[#94BD04]"
+                                            ? "rounded-3xl bg-[#ccff00]"
                                             : ""
                                     }
                                 >

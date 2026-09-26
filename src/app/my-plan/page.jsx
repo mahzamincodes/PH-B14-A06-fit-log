@@ -21,11 +21,31 @@ const MyPlanPage = () => {
     } = useFitlog();
 
     const [activeTab, setActiveTab] = useState("today");
+    const [sortBy, setSortBy] = useState("duration");
 
     const workouts = activeTab === "today" ? todayPlan : savedWorkouts;
 
+    /* Sort workouts */
+    const sortedWorkouts = [...workouts].sort((a, b) => {
+        if (sortBy === "duration") {
+            return Number(a.duration || 0) - Number(b.duration || 0);
+        }
+
+        if (sortBy === "calories") {
+            return (
+                Number(a.caloriesBurned || 0) - Number(b.caloriesBurned || 0)
+            );
+        }
+
+        if (sortBy === "rating") {
+            return Number(a.rating || 0) - Number(b.rating || 0);
+        }
+
+        return 0;
+    });
+
     /* Current tab workouts */
-    const currentWorkouts = activeTab === "today" ? todayPlan : savedWorkouts;
+    const currentWorkouts = workouts;
 
     const totalMinutes = currentWorkouts.reduce(
         (total, workout) => total + Number(workout.duration || 0),
@@ -111,29 +131,52 @@ const MyPlanPage = () => {
                 </div>
             </div>
 
-            {/* Tabs */}
-            <div className="mt-10 flex border-b border-gray-800">
-                <button
-                    onClick={() => setActiveTab("today")}
-                    className={`px-5 py-3 text-sm font-semibold ${
-                        activeTab === "today"
-                            ? "border-b-2 border-[#C2F800] text-[#C2F800]"
-                            : "text-gray-400"
-                    }`}
-                >
-                    Todays Plan
-                </button>
+            {/* Tabs + Sort */}
+            <div className="mt-10 flex items-center justify-between border-b border-gray-800">
+                <div className="flex">
+                    <button
+                        onClick={() => setActiveTab("today")}
+                        className={`px-5 py-3 text-sm font-semibold ${
+                            activeTab === "today"
+                                ? "border-b-2 border-[#C2F800] text-[#C2F800]"
+                                : "text-gray-400"
+                        }`}
+                    >
+                        Todays Plan
+                    </button>
 
-                <button
-                    onClick={() => setActiveTab("saved")}
-                    className={`px-5 py-3 text-sm font-semibold ${
-                        activeTab === "saved"
-                            ? "border-b-2 border-[#C2F800] text-[#C2F800]"
-                            : "text-gray-400"
-                    }`}
-                >
-                    Saved
-                </button>
+                    <button
+                        onClick={() => setActiveTab("saved")}
+                        className={`px-5 py-3 text-sm font-semibold ${
+                            activeTab === "saved"
+                                ? "border-b-2 border-[#C2F800] text-[#C2F800]"
+                                : "text-gray-400"
+                        }`}
+                    >
+                        Saved
+                    </button>
+                </div>
+
+                {/* Sort Dropdown */}
+                <div className="flex items-center gap-2 pb-2">
+                    <label
+                        htmlFor="sort"
+                        className="text-sm font-medium text-gray-400"
+                    >
+                        Sort By
+                    </label>
+
+                    <select
+                        id="sort"
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value)}
+                        className="cursor-pointer rounded-lg border border-gray-700 bg-[#151922] px-3 py-2 text-sm font-medium text-white outline-none focus:border-[#C2F800]"
+                    >
+                        <option value="duration">Duration</option>
+                        <option value="calories">Calories</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
             </div>
 
             {/* Empty State */}
@@ -158,10 +201,9 @@ const MyPlanPage = () => {
                 </div>
             ) : (
                 <div className="mt-8 space-y-5">
-                    {workouts.map((workout) => {
+                    {sortedWorkouts.map((workout) => {
                         const isCompleted = doneWorkouts.some(
-                            (item) =>
-                                String(item.id) === String(workout.id),
+                            (item) => String(item.id) === String(workout.id),
                         );
 
                         return (
