@@ -7,6 +7,7 @@ const FitlogContext = createContext();
 export const FitlogProvider = ({ children }) => {
     const [todayPlan, setTodayPlan] = useState([]);
     const [savedWorkouts, setSavedWorkouts] = useState([]);
+    const [doneWorkouts, setDoneWorkouts] = useState([]);
 
     return (
         <FitlogContext.Provider
@@ -15,6 +16,8 @@ export const FitlogProvider = ({ children }) => {
                 setTodayPlan,
                 savedWorkouts,
                 setSavedWorkouts,
+                doneWorkouts,
+                setDoneWorkouts,
             }}
         >
             {children}
